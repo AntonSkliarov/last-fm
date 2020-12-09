@@ -3,6 +3,6 @@ import './App.scss';
 
 export const App = () => (
   <div>
-    React starter pack
+    Last FM
   </div>
 );
