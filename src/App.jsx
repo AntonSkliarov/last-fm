@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getTracks } from './api/getTracks';
 import './App.scss';
+import { Navigation } from './components/Navigation';
 
 export function App() {
   const [topTracks, setTopTracks] = useState([]);
@@ -15,11 +16,17 @@ export function App() {
     fetchData();
   }, []);
 
-  console.log(topTracks);
-
   return (
-    <div>
-      Last FM
-    </div>
+    <>
+      <Navigation />
+      <div>
+        Last FM
+        <div>
+          {topTracks.map(track => (
+            <p>{track.name}</p>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
