@@ -4,6 +4,7 @@ import './App.scss';
 import { ArtistDetails } from './components/ArtistDetails';
 import { Navigation } from './components/Navigation';
 import { TopTracks } from './components/TopTracks/TopTracks';
+import { TrackSearch } from './components/TrackSearch/TrackSearch';
 
 export function App() {
   return (
@@ -17,7 +18,7 @@ export function App() {
           />
 
           <Route path="/track-search">
-            <h2>Track Search</h2>
+            <TrackSearch />
           </Route>
 
           <Route path="/" exact>

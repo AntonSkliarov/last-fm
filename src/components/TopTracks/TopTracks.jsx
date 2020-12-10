@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { TrackCard } from '../TrackCard/TrackCard';
-import { getTracks } from '../../api/getTracks';
+import { getTopTracks } from '../../api/getTopTracks';
 
 export function TopTracks() {
   const [topTracks, setTopTracks] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const requestedTracks = await getTracks();
+      const requestedTracks = await getTopTracks();
 
       const songs = requestedTracks.tracks.track;
 
