@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './TrackCard.scss';
 
 export function TrackCard({ track }) {
@@ -23,7 +24,9 @@ export function TrackCard({ track }) {
 
           <div>
             <h3>{track.name}</h3>
-            <h3>{track.artist.name}</h3>
+            <Link to={`/artist-details/${track.artist.name}`}>
+              {track.artist.name}
+            </Link>
             <a href={track.artist.url}>Artist on Last FM</a>
           </div>
         </div>
