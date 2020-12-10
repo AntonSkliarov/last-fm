@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { getArtist } from '../../api/getArtist';
+import { ArtistTag } from '../ArtistTag';
 
 export function ArtistDetails({ match }) {
   const [artist, setArtist] = useState({});
@@ -32,14 +33,7 @@ export function ArtistDetails({ match }) {
           <p>{artist.bio.content}</p>
           <p>Tags</p>
           {artist.tags.tag.map(tag => (
-            <a
-              href={tag.url}
-              target="_blank"
-              rel="noreferrer"
-              key={tag.name}
-            >
-              {tag.name}
-            </a>
+            <ArtistTag key={tag.name} tag={tag} />
           ))}
           {console.log(artist)}
         </div>

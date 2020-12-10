@@ -24,10 +24,12 @@ export function TrackCard({ track }) {
 
           <div>
             <h3>{track.name}</h3>
-            <Link to={`/artist-details/${track.artist.name}`}>
-              {track.artist.name}
-            </Link>
-            <a href={track.artist.url}>Artist on Last FM</a>
+            <div>
+              <Link to={`/artist-details/${track.artist.name}`}>
+                {track.artist.name}
+              </Link>
+            </div>
+            <a href={track.artist.url}>Artist on Last.fm</a>
           </div>
         </div>
       </li>
