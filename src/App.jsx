@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.scss';
 import { ArtistDetails } from './components/ArtistDetails';
 import { Navigation } from './components/Navigation';
+import { NotFoundPage } from './components/NotFoundPage/NotFoundPage';
 import { TopTracks } from './components/TopTracks/TopTracks';
 import { TrackSearch } from './components/TrackSearch/TrackSearch';
 
@@ -26,6 +27,8 @@ export function App() {
           </Route>
 
           <Redirect path="/home" to="/" />
+
+          <NotFoundPage />
         </Switch>
       </div>
     </>
