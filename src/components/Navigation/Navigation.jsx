@@ -1,19 +1,34 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export function Navigation() {
   return (
-    <nav className="navbar">
+    <nav className=" mb-4">
       <div className="navbar-brand container">
-        <Link className="navbar-item" to="/">
+        <NavLink
+          className="navbar-item is-tab"
+          to="/"
+          activeClassName="is-active"
+          exact
+        >
           Top Tracks
-        </Link>
-        <Link className="navbar-item" to="/track-search">
+        </NavLink>
+
+        <NavLink
+          className="navbar-item is-tab"
+          to="/track-search"
+          activeClassName="is-active"
+        >
           Track Search
-        </Link>
-        <Link className="navbar-item" to="/artist-details">
+        </NavLink>
+
+        <NavLink
+          className="navbar-item is-tab"
+          to="/artist-details"
+          activeClassName="is-active"
+        >
           Artist Details
-        </Link>
+        </NavLink>
       </div>
     </nav>
   );
