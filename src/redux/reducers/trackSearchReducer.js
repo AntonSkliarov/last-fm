@@ -3,11 +3,15 @@ import {
   CLEAR_TRACK_PREVIEW,
   SET_SEARCH_ERROR,
   CLEAR_SEARCH_ERROR,
+  SET_INPUT_ERROR,
+  CLEAR_INPUT_ERROR,
 } from '../constants/constants';
 
 const initialState = {
   tracks: [],
   searchError: false,
+  showInputError: false,
+  requestError: false,
 };
 
 export const trackSearchReducer = (state = initialState, action) => {
@@ -31,6 +35,16 @@ export const trackSearchReducer = (state = initialState, action) => {
       return {
         ...state,
         searchError: false,
+      };
+    case SET_INPUT_ERROR:
+      return {
+        ...state,
+        showInputError: true,
+      };
+    case CLEAR_INPUT_ERROR:
+      return {
+        ...state,
+        showInputError: false,
       };
     default:
       return state;

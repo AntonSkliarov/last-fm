@@ -2,20 +2,30 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { ArtistTag } from '../ArtistTag';
-import { fetchArtist } from '../../redux/actions/actions';
+import { fetchArtist } from '../../redux/actions/artist';
+import { RequestError } from '../RequestError/RequestError';
 
 export function ArtistDetails({ match }) {
   const dispatch = useDispatch();
   const artist = useSelector(state => state.artist.artist);
   const artistImage = useSelector(state => state.artist.artistImage);
+  const requestError = useSelector(state => (
+    state.requestErrors.requestErrors.artistError
+  ));
 
   useEffect(() => {
     dispatch(fetchArtist(match.params));
   }, [match.params.artistName]);
 
+  if (requestError) {
+    return (
+      <RequestError />
+    );
+  }
+
   return (
     <>
-      {!!Object.keys(artist).length && (
+      {artist && (
         <div>
           <img src={artistImage['#text']} alt="" />
           <h3>{artist.name}</h3>

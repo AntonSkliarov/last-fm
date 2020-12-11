@@ -5,22 +5,38 @@ import {
   fetchSearchedTrack,
   clearSearchedTrack,
   clearSearchError,
-} from '../../redux/actions/actions';
+  setInputError,
+  clearInputError,
+} from '../../redux/actions/trackSearch';
+import { RequestError } from '../RequestError/RequestError';
 
 export function TrackSearch() {
   const dispatch = useDispatch();
   const tracksForPreview = useSelector(state => state.tracksForPreview.tracks);
   const searchError = useSelector(state => state.tracksForPreview.searchError);
+  const showInputError = useSelector(state => (
+    state.tracksForPreview.showInputError
+  ));
+  const requestError = useSelector(state => (
+    state.requestErrors.requestErrors.searchTrackError
+  ));
   const [query, setQuery] = useState('');
 
   const changeQuery = (event) => {
     dispatch(clearSearchError());
+    dispatch(clearInputError());
     setQuery(event.target.value);
     dispatch(clearSearchedTrack());
   };
 
   const trackSearch = (event) => {
     event.preventDefault();
+    if (query.trim().length === 0) {
+      dispatch(setInputError());
+
+      return;
+    }
+
     dispatch(fetchSearchedTrack(query));
   };
 
@@ -45,6 +61,13 @@ export function TrackSearch() {
               autoComplete="off"
             />
           </div>
+
+          {showInputError && (
+            <p className="help is-danger">
+              Search field cannot be empty
+            </p>
+          )}
+
           {searchError && (
             <p className="help is-danger">
               Can&apos;t find a track with such a title
@@ -64,6 +87,8 @@ export function TrackSearch() {
           </div>
         </div>
       </form>
+
+      {requestError && <RequestError />}
 
       {!!tracksForPreview.length && (
         <div className="container">

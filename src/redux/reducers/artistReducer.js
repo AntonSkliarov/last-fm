@@ -1,7 +1,7 @@
 import { FETCH_ARTIST, SET_ARTIST_IMAGE } from '../constants/constants';
 
 const initialState = {
-  artist: [],
+  artist: null,
   artistImage: {},
 };
 
