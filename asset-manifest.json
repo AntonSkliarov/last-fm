@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/last-fm/static/css/main.6d739d09.chunk.css",
-    "main.js": "/last-fm/static/js/main.51b826ca.chunk.js",
-    "main.js.map": "/last-fm/static/js/main.51b826ca.chunk.js.map",
+    "main.js": "/last-fm/static/js/main.c3b04db5.chunk.js",
+    "main.js.map": "/last-fm/static/js/main.c3b04db5.chunk.js.map",
     "runtime-main.js": "/last-fm/static/js/runtime-main.57202574.js",
     "runtime-main.js.map": "/last-fm/static/js/runtime-main.57202574.js.map",
-    "static/js/2.eba9901b.chunk.js": "/last-fm/static/js/2.eba9901b.chunk.js",
-    "static/js/2.eba9901b.chunk.js.map": "/last-fm/static/js/2.eba9901b.chunk.js.map",
+    "static/js/2.5fdcbe9a.chunk.js": "/last-fm/static/js/2.5fdcbe9a.chunk.js",
+    "static/js/2.5fdcbe9a.chunk.js.map": "/last-fm/static/js/2.5fdcbe9a.chunk.js.map",
     "index.html": "/last-fm/index.html",
     "static/css/main.6d739d09.chunk.css.map": "/last-fm/static/css/main.6d739d09.chunk.css.map",
-    "static/js/2.eba9901b.chunk.js.LICENSE.txt": "/last-fm/static/js/2.eba9901b.chunk.js.LICENSE.txt"
+    "static/js/2.5fdcbe9a.chunk.js.LICENSE.txt": "/last-fm/static/js/2.5fdcbe9a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.57202574.js",
-    "static/js/2.eba9901b.chunk.js",
+    "static/js/2.5fdcbe9a.chunk.js",
     "static/css/main.6d739d09.chunk.css",
-    "static/js/main.51b826ca.chunk.js"
+    "static/js/main.c3b04db5.chunk.js"
   ]
 }
