@@ -27,7 +27,6 @@ export function fetchSearchedTrack(trackName) {
         payload: tracks,
       });
     } catch (error) {
-      console.log('CONSOLE', error);
       dispatch(setRequestError(PAGE_NAMES.SEARCH_TRACK));
     }
   };

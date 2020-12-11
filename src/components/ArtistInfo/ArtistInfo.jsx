@@ -17,7 +17,7 @@ export function ArtistInfo() {
         src={artistImage['#text']}
         alt={artist.name}
       />
-      <h2 className="subtitle mb-3">{artist.name}</h2>
+      <h2 className="subtitle mb-3 has-text-weight-semibold">{artist.name}</h2>
       <p className="mb-4">{artistBio}</p>
       {artist.tags.tag.map(tag => (
         <ArtistTag key={tag.name} tag={tag} />

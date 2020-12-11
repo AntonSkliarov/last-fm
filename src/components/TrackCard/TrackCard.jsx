@@ -18,8 +18,8 @@ export function TrackCard({ track }) {
           />
 
           <div>
-            <h3>{track.name}</h3>
-            <div className="mb-4">
+            <h3 className="has-text-weight-medium">{track.name}</h3>
+            <div className="mb-4 has-text-weight-semibold">
               <Link to={`/artist-details/${track.artist.name}`}>
                 {track.artist.name}
               </Link>
