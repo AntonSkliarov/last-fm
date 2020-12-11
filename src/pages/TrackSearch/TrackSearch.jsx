@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { RequestError } from '../../components/RequestError';
 import { SearchForm } from '../../components/SearchForm';
-import { TracksPreview } from '../../components/TracksPreview/TracksPreview';
+import { TracksPreview } from '../../components/TracksPreview';
 
 export function TrackSearch() {
   const tracksForPreview = useSelector(state => state.tracksForPreview.tracks);

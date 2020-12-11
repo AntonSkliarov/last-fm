@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchArtist } from '../../redux/actions/artist';
-import { RequestError } from '../../components/RequestError/RequestError';
-import { ArtistInfo } from '../../components/ArtistInfo/ArtistInfo';
+import { RequestError } from '../../components/RequestError';
+import { ArtistInfo } from '../../components/ArtistInfo';
 
 export function ArtistDetails({ match }) {
   const dispatch = useDispatch();

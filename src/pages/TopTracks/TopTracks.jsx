@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { TrackCard } from '../../components/TrackCard/TrackCard';
+import { TrackCard } from '../../components/TrackCard';
 import { fetchTopTracks } from '../../redux/actions/topTracks';
-import { RequestError } from '../../components/RequestError/RequestError';
+import { RequestError } from '../../components/RequestError';
 
 export function TopTracks() {
   const dispatch = useDispatch();
@@ -23,7 +23,6 @@ export function TopTracks() {
 
   return (
     <div>
-      <h2>TOP TRACKS:</h2>
       <ul className="is-flex is-flex-wrap-wrap">
         {topTracks.map(track => (
           <TrackCard track={track} key={track.id} />

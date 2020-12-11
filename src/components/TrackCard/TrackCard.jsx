@@ -8,18 +8,18 @@ export function TrackCard({ track }) {
   const trackImage = getImage(track.image);
 
   return (
-    <div className="track-card card">
+    <div className="track-card card mr-4 mb-4">
       <li>
-        <div className="card-content">
+        <div className="card-content is-flex">
           <img
-            className="image is-64x64"
+            className="image is-64x64 mr-5"
             src={trackImage['#text']}
             alt={`${track.artist.name} Album Cover`}
           />
 
           <div>
             <h3>{track.name}</h3>
-            <div>
+            <div className="mb-4">
               <Link to={`/artist-details/${track.artist.name}`}>
                 {track.artist.name}
               </Link>

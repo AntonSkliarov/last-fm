@@ -9,6 +9,7 @@ import {
   fetchSearchedTrack,
 } from '../../redux/actions/trackSearch';
 import { clearReuestSearchTrackError } from '../../redux/actions/app';
+import './SearchForm.scss';
 
 export function SearchForm() {
   const dispatch = useDispatch();

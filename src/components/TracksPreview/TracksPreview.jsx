@@ -5,7 +5,9 @@ export function TracksPreview() {
   const tracksForPreview = useSelector(state => state.tracksForPreview.tracks);
 
   return (
-    <div className="container">
+    <div className="container is-flex is-flex-direction-column
+    is-justify-content-space-around"
+    >
       <h3 className="title">
         {`Tracks found: ${tracksForPreview.length}`}
       </h3>
