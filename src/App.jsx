@@ -1,11 +1,11 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.scss';
-import { ArtistDetails } from './components/ArtistDetails';
+import { ArtistDetails } from './pages/ArtistDetails';
 import { Navigation } from './components/Navigation';
-import { NotFoundPage } from './components/NotFoundPage/NotFoundPage';
-import { TopTracks } from './components/TopTracks/TopTracks';
-import { TrackSearch } from './components/TrackSearch/TrackSearch';
+import { NotFoundPage } from './pages/NotFoundPage';
+import { TopTracks } from './pages/TopTracks';
+import { TrackSearch } from './pages/TrackSearch';
 
 export function App() {
   return (
@@ -17,6 +17,9 @@ export function App() {
             path="/artist-details/:artistName"
             component={ArtistDetails}
           />
+          <Route path="/artist-details">
+            <ArtistDetails />
+          </Route>
 
           <Route path="/track-search">
             <TrackSearch />

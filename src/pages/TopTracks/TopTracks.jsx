@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { TrackCard } from '../TrackCard/TrackCard';
+import { TrackCard } from '../../components/TrackCard/TrackCard';
 import { fetchTopTracks } from '../../redux/actions/topTracks';
-import { RequestError } from '../RequestError/RequestError';
+import { RequestError } from '../../components/RequestError/RequestError';
 
 export function TopTracks() {
   const dispatch = useDispatch();
@@ -17,9 +17,7 @@ export function TopTracks() {
 
   if (requestError) {
     return (
-      <>
-        {requestError && <RequestError />}
-      </>
+      <RequestError />
     );
   }
 

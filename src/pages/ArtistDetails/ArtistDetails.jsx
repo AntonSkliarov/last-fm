@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { ArtistTag } from '../ArtistTag';
+import { ArtistTag } from '../../components/ArtistTag';
 import { fetchArtist } from '../../redux/actions/artist';
-import { RequestError } from '../RequestError/RequestError';
+import { RequestError } from '../../components/RequestError/RequestError';
 
 export function ArtistDetails({ match }) {
   const dispatch = useDispatch();
@@ -13,9 +13,11 @@ export function ArtistDetails({ match }) {
     state.requestErrors.requestErrors.artistError
   ));
 
-  useEffect(() => {
-    dispatch(fetchArtist(match.params));
-  }, [match.params.artistName]);
+  if (match !== undefined) {
+    useEffect(() => {
+      dispatch(fetchArtist(match.params));
+    }, [match.params.artistName]);
+  }
 
   if (requestError) {
     return (
@@ -25,17 +27,24 @@ export function ArtistDetails({ match }) {
 
   return (
     <>
-      {artist && (
-        <div>
-          <img src={artistImage['#text']} alt="" />
-          <h3>{artist.name}</h3>
-          <p>{artist.bio.content}</p>
-          <p>Tags</p>
-          {artist.tags.tag.map(tag => (
-            <ArtistTag key={tag.name} tag={tag} />
-          ))}
-        </div>
-      )}
+      {artist
+        ? (
+          <div>
+            <img src={artistImage['#text']} alt="" />
+            <h3>{artist.name}</h3>
+            <p>{artist.bio.content}</p>
+            <p>Tags</p>
+            {artist.tags.tag.map(tag => (
+              <ArtistTag key={tag.name} tag={tag} />
+            ))}
+          </div>
+        )
+        : (
+          <div className="notification is-info">
+            Hey, wanna see some? Just click on the artist`s
+            name on the Top Tracks Page!
+          </div>
+        )}
     </>
   );
 }
