@@ -2,6 +2,7 @@ import {
   SET_REQUEST_TOP_TRACKS_ERROR,
   SET_REQUEST_SEARCH_TRACK_ERROR,
   SET_REQUEST_ARTIST_ERROR,
+  CLEAR_REQUEST_SEARCH_TRACK_ERROR,
 } from '../constants/constants';
 
 const initialState = {
@@ -36,6 +37,14 @@ export const appReducer = (state = initialState, action) => {
         requestErrors: {
           ...state.requestErrors,
           artistError: true,
+        },
+      };
+    case CLEAR_REQUEST_SEARCH_TRACK_ERROR:
+      return {
+        ...state,
+        requestErrors: {
+          ...state.requestErrors,
+          searchTrackError: false,
         },
       };
     default:

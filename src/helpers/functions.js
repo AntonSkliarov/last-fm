@@ -21,3 +21,12 @@ export function getImage(images, imageType = 'track') {
 
   return artistImage;
 }
+
+export function formatDescription(text) {
+  const firtsPartOfText = text.split(' <', 2)[0];
+  const secondPartOfText = text.split('a>.')[1];
+
+  const formatedDescription = [firtsPartOfText, secondPartOfText].join('');
+
+  return formatedDescription;
+}

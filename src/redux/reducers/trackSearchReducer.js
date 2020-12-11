@@ -10,7 +10,7 @@ import {
 const initialState = {
   tracks: [],
   searchError: false,
-  showInputError: false,
+  inputError: false,
   requestError: false,
 };
 
@@ -39,12 +39,12 @@ export const trackSearchReducer = (state = initialState, action) => {
     case SET_INPUT_ERROR:
       return {
         ...state,
-        showInputError: true,
+        inputError: true,
       };
     case CLEAR_INPUT_ERROR:
       return {
         ...state,
-        showInputError: false,
+        inputError: false,
       };
     default:
       return state;

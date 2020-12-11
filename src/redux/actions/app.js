@@ -3,6 +3,7 @@ import {
   SET_REQUEST_SEARCH_TRACK_ERROR,
   SET_REQUEST_ARTIST_ERROR,
   PAGE_NAMES,
+  CLEAR_REQUEST_SEARCH_TRACK_ERROR,
 } from '../constants/constants';
 
 export function setRequestError(pageName) {
@@ -28,5 +29,13 @@ export function setRequestError(pageName) {
 
       default:
     }
+  };
+}
+
+export function clearReuestSearchTrackError() {
+  return (dispatch) => {
+    dispatch({
+      type: CLEAR_REQUEST_SEARCH_TRACK_ERROR,
+    });
   };
 }

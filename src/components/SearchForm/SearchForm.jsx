@@ -8,12 +8,13 @@ import {
   setInputError,
   fetchSearchedTrack,
 } from '../../redux/actions/trackSearch';
+import { clearReuestSearchTrackError } from '../../redux/actions/app';
 
 export function SearchForm() {
   const dispatch = useDispatch();
   const searchError = useSelector(state => state.tracksForPreview.searchError);
-  const showInputError = useSelector(state => (
-    state.tracksForPreview.showInputError
+  const inputError = useSelector(state => (
+    state.tracksForPreview.inputError
   ));
   const [query, setQuery] = useState('');
 
@@ -32,6 +33,7 @@ export function SearchForm() {
       return;
     }
 
+    dispatch(clearReuestSearchTrackError());
     dispatch(fetchSearchedTrack(query));
   };
 
@@ -56,7 +58,7 @@ export function SearchForm() {
           />
         </div>
 
-        {showInputError && (
+        {inputError && (
           <p className="help is-danger">
             Search field cannot be empty
           </p>
