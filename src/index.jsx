@@ -8,12 +8,9 @@ import './index.css';
 import { App } from './App';
 import { rootReducer } from './redux/reducers/rootReducer';
 
-/* eslint-disable no-underscore-dangle */
 const store = createStore(rootReducer, compose(
   applyMiddleware(thunk),
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 ));
-/* eslint-enable */
 
 const app = (
   <Provider store={store}>
