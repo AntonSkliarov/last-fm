@@ -1,9 +1,20 @@
-# React Starter Pack
+# Last FM Page
 
-To use this template click `Use this template`
+For DEMO click [HERE](https://antonskliarov.github.io/last-fm/#/)
 
-### Available Scripts
+*****
 
-`Deploy` - available to deploy your application to gh-pages
+## Tech stack
 
-`SCSS Preprocessor` - available to write your styles with modern style language
+  * HTML5
+  * Bulma, SCSS
+  * JavaScript
+  * React (v.17.0.1), React Router
+  * Redux, Redux thunk
+
+### Installing
+
+1. Fork and clone this repository
+2. Run `npm install` in your terminal
+3. Run `npm start`
+4. Open `http://localhost:3000/` at your browser
