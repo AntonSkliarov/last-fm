@@ -1,27 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { TrackCard } from '../TrackCard/TrackCard';
-import { getTopTracks } from '../../api/getTopTracks';
+import { fetchTopTracks } from '../../redux/actions/actions';
 
 export function TopTracks() {
-  const [topTracks, setTopTracks] = useState([]);
+  const dispatch = useDispatch();
+  const topTracks = useSelector(state => state.topTracks.tracks);
 
   useEffect(() => {
-    async function fetchData() {
-      const requestedTracks = await getTopTracks();
-
-      const songs = requestedTracks.tracks.track;
-
-      const tracksWithIds = songs.map((song, i) => (
-        {
-          ...song,
-          id: i,
-        }
-      ));
-
-      setTopTracks(tracksWithIds);
-    }
-
-    fetchData();
+    dispatch(fetchTopTracks());
   }, []);
 
   return (

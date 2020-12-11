@@ -1,27 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { getArtist } from '../../api/getArtist';
+import { useSelector, useDispatch } from 'react-redux';
 import { ArtistTag } from '../ArtistTag';
+import { fetchArtist } from '../../redux/actions/actions';
 
 export function ArtistDetails({ match }) {
-  const [artist, setArtist] = useState({});
-  const [artistImage, setArtistImage] = useState('');
+  const dispatch = useDispatch();
+  const artist = useSelector(state => state.artist.artist);
+  const artistImage = useSelector(state => state.artist.artistImage);
 
   useEffect(() => {
-    async function fetchData() {
-      const { artistName } = match.params;
-      const requestedArtist = await getArtist(artistName);
-
-      setArtist(requestedArtist.artist);
-
-      requestedArtist.artist.image.forEach((picture) => {
-        if (picture.size === 'extralarge') {
-          setArtistImage(picture);
-        }
-      });
-    }
-
-    fetchData();
+    dispatch(fetchArtist(match.params));
   }, [match.params.artistName]);
 
   return (
@@ -35,7 +24,6 @@ export function ArtistDetails({ match }) {
           {artist.tags.tag.map(tag => (
             <ArtistTag key={tag.name} tag={tag} />
           ))}
-          {console.log(artist)}
         </div>
       )}
     </>

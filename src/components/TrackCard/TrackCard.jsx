@@ -2,15 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './TrackCard.scss';
+import { getImage } from '../../helpers/functions';
 
 export function TrackCard({ track }) {
-  let trackImage = {};
-
-  track.image.forEach((picture) => {
-    if (picture.size === 'medium') {
-      trackImage = picture;
-    }
-  });
+  const trackImage = getImage(track.image);
 
   return (
     <div className="track-card card">

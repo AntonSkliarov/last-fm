@@ -1,32 +1,27 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
-import { getTrack } from '../../api/getTrack';
+import {
+  fetchSearchedTrack,
+  clearSearchedTrack,
+  clearSearchError,
+} from '../../redux/actions/actions';
 
 export function TrackSearch() {
+  const dispatch = useDispatch();
+  const tracksForPreview = useSelector(state => state.tracksForPreview.tracks);
+  const searchError = useSelector(state => state.tracksForPreview.searchError);
   const [query, setQuery] = useState('');
-  const [tracksForPreview, setTracksForPreview] = useState();
-  const [searchError, setSearchError] = useState(false);
 
   const changeQuery = (event) => {
-    setSearchError(false);
+    dispatch(clearSearchError());
     setQuery(event.target.value);
-    setTracksForPreview();
+    dispatch(clearSearchedTrack());
   };
 
-  const trackSearch = async(event) => {
+  const trackSearch = (event) => {
     event.preventDefault();
-    const requestedTracks = await getTrack(query);
-
-    const tracks = requestedTracks.results.trackmatches.track;
-
-    if (tracks.length === 0) {
-      setSearchError(true);
-
-      return;
-    }
-
-    setSearchError(false);
-    setTracksForPreview(tracks);
+    dispatch(fetchSearchedTrack(query));
   };
 
   return (
@@ -70,40 +65,37 @@ export function TrackSearch() {
         </div>
       </form>
 
-      <div className="container">
-        {tracksForPreview && (
-          <>
-            <h3 className="title">Tracks Matches:</h3>
-            <table className="table">
-              <thead className="thead">
-                <tr>
-                  <th>Track Title</th>
-                  <th>Artist</th>
-                  <th>Link to Last.fm</th>
+      {!!tracksForPreview.length && (
+        <div className="container">
+          <h3 className="title">Tracks Matches:</h3>
+          <table className="table">
+            <thead className="thead">
+              <tr>
+                <th>Track Title</th>
+                <th>Artist</th>
+                <th>Link to Last.fm</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tracksForPreview.map(track => (
+                <tr key={track.url}>
+                  <td>{track.name}</td>
+                  <td>{track.artist}</td>
+                  <td>
+                    <a
+                      href={track.url}
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      Listen
+                    </a>
+                  </td>
                 </tr>
-              </thead>
-              <tbody>
-                {tracksForPreview.map(track => (
-                  <tr>
-                    <td>{track.name}</td>
-                    <td>{track.artist}</td>
-                    <td>
-                      <a
-                        href={track.url}
-                        rel="noreferrer"
-                        target="_blank"
-                      >
-                        Listen
-                      </a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-            {console.log(tracksForPreview)}
-          </>
-        )}
-      </div>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </>
   );
 }
