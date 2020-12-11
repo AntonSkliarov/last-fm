@@ -17,7 +17,9 @@ export function TrackSearch() {
 
       {!!tracksForPreview.length && (
         <div className="container">
-          <h3 className="title">Tracks Matches:</h3>
+          <h3 className="title">
+            {`Tracks found: ${tracksForPreview.length}`}
+          </h3>
           <table className="table">
             <thead className="thead">
               <tr>

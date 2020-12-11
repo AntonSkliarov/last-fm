@@ -36,7 +36,7 @@ export function SearchForm() {
   };
 
   return (
-    <form className="find-track">
+    <form className="find-track mb-4">
       <div className="field">
         <label className="label" htmlFor="track-title">
           Track title
@@ -44,7 +44,7 @@ export function SearchForm() {
 
         <div className="control">
           <input
-            className={classNames('input', {
+            className={classNames('input ', {
               'is-danger': searchError,
             })}
             type="text"

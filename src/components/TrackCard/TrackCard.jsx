@@ -24,7 +24,13 @@ export function TrackCard({ track }) {
                 {track.artist.name}
               </Link>
             </div>
-            <a href={track.artist.url}>Artist on Last.fm</a>
+            <a
+              href={track.artist.url}
+              rel="noreferrer"
+              target="_blank"
+            >
+              Artist on Last.fm
+            </a>
           </div>
         </div>
       </li>
