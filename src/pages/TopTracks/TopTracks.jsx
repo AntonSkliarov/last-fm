@@ -23,7 +23,7 @@ export function TopTracks() {
 
   return (
     <div>
-      <ul className="is-flex is-flex-wrap-wrap">
+      <ul className="is-flex is-flex-wrap-wrap is-justify-content-center">
         {topTracks.map(track => (
           <TrackCard track={track} key={track.id} />
         ))}

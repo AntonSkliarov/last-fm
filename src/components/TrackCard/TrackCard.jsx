@@ -12,12 +12,12 @@ export function TrackCard({ track }) {
       <li>
         <div className="card-content is-flex">
           <img
-            className="image is-64x64 mr-5"
+            className="card-content__image image is-64x64 mr-5"
             src={trackImage['#text']}
             alt={`${track.artist.name} Album Cover`}
           />
 
-          <div>
+          <div className="card-content__info">
             <h3 className="has-text-weight-medium">{track.name}</h3>
             <div className="mb-4 has-text-weight-semibold">
               <Link to={`/artist-details/${track.artist.name}`}>

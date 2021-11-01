@@ -11,7 +11,7 @@ export function ArtistInfo() {
   const artistBio = formatDescription(artist.bio.content);
 
   return (
-    <div className="artist-info">
+    <div className="artist-info mb-4">
       <img
         className="subtitle mb-4"
         src={artistImage['#text']}
