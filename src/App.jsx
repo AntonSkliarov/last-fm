@@ -11,7 +11,7 @@ export function App() {
   return (
     <>
       <Navigation />
-      <div className="container">
+      <div className="container is-fluid">
         <Switch>
           <Route
             path="/artist-details/:artistName"

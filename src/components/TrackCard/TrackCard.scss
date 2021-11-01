@@ -1,3 +1,37 @@
 .track-card {
-  width: 30%
+  max-width: 30%;
+  width: 100%;
+
+  @media screen and (max-width: 1023px) {
+    max-width: 40%;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 680px) {
+    max-width: 60%;
+    width: 100%;
+
+    & .card-content {
+      flex-direction: column;
+
+      &__image {
+        width: 120px;
+        height: 120px;
+        margin: 0 0 20px 0;
+        align-self: center;
+        &.mr-5 {
+          margin: 0 0 20px 0 !important;
+        }
+      }
+
+      &__info {
+        text-align: center;
+      }
+    }
+  }
+
+  @media screen and (max-width: 560px) {
+    max-width: 80%;
+    width: 100%;
+  }
 }

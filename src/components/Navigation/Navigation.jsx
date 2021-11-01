@@ -1,9 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import './Navigation.scss';
 
 export const Navigation = () => (
   <nav className=" mb-4">
-    <div className="navbar-brand container">
+    <div className="navbar-brand container is-fluid">
       <NavLink
         className="navbar-item is-tab has-text-weight-bold"
         to="/"
